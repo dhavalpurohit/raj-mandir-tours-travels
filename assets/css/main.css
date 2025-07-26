@@ -11,6 +11,36 @@
     display: none !important;
 }
 
+.whatsappIcon {
+    bottom: 50px;
+    animation: 500ms ease-in-out 0s normal none 1 running sscrollTop;
+    transition: 0.3s;
+    border-radius: 50%;
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    z-index: 100;
+    right: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #fff;
+}
+
+.whatsappIcon a {
+    font-size: 20px;
+    color: #fff;
+}
+
+.whatsappIcon a:hover {
+    color: #fff;
+}
+
+.whatsapp_bg_color {
+    background-color: #25D366;
+}
+
 @media (min-width: 768px) {
     .video_slide {
         display: block !important;
