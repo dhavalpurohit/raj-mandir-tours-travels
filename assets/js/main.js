@@ -2,7 +2,6 @@
   "use strict";
 
   var WidgetDefaultHandler = function ($scope) {
-
     // mailchimp form
     if ($scope.find(".mc-form").length) {
       $scope.find(".mc-form").each(function () {
@@ -33,18 +32,26 @@
 
               mcResp.find("p").fadeOut(10000);
             }
-          }
+          },
         });
       });
     }
 
     // Sidebar
-    if ($scope.find(".main-header--five__toggler, .sidebar-one__overlay, .sidebar-one__close").length) {
-      $scope.find(".main-header--five__toggler, .sidebar-one__overlay, .sidebar-one__close").on("click", function (e) {
-        e.preventDefault();
-        $scope.find(".sidebar-one").toggleClass("active");
-        $("body").toggleClass("locked");
-      });
+    if (
+      $scope.find(
+        ".main-header--five__toggler, .sidebar-one__overlay, .sidebar-one__close"
+      ).length
+    ) {
+      $scope
+        .find(
+          ".main-header--five__toggler, .sidebar-one__overlay, .sidebar-one__close"
+        )
+        .on("click", function (e) {
+          e.preventDefault();
+          $scope.find(".sidebar-one").toggleClass("active");
+          $("body").toggleClass("locked");
+        });
     }
 
     if ($scope.find(".wow").length) {
@@ -52,7 +59,7 @@
         boxClass: "wow", // animated element css class (default is wow)
         animateClass: "animated", // animation css class (default is animated)
         mobile: true, // trigger animations on mobile devices (default is true)
-        live: true // act on asynchronously loaded content (default is true)
+        live: true, // act on asynchronously loaded content (default is true)
       });
       // wow.init();
     }
@@ -67,30 +74,34 @@
           if (!$t.hasClass("counted")) {
             $t.addClass("counted");
             $({
-              countNum: $t.find(".count-text").text()
-            }).animate({
-              countNum: n
-            }, {
-              duration: r,
-              easing: "linear",
-              step: function () {
-                $t.find(".count-text").text(Math.floor(this.countNum));
+              countNum: $t.find(".count-text").text(),
+            }).animate(
+              {
+                countNum: n,
               },
-              complete: function () {
-                $t.find(".count-text").text(this.countNum);
+              {
+                duration: r,
+                easing: "linear",
+                step: function () {
+                  $t.find(".count-text").text(Math.floor(this.countNum));
+                },
+                complete: function () {
+                  $t.find(".count-text").text(this.countNum);
+                },
               }
-            });
+            );
           }
-        }, {
-        accY: 0
-      }
+        },
+        {
+          accY: 0,
+        }
       );
     }
 
     // owl slider
-    let cityrideowlCarousel = $scope.find(".cityride-owl__carousel");
-    if (cityrideowlCarousel.length) {
-      cityrideowlCarousel.each(function () {
+    let rajowlCarousel = $scope.find(".raj-owl__carousel");
+    if (rajowlCarousel.length) {
+      rajowlCarousel.each(function () {
         let elm = $(this);
         let options = elm.data("owl-options");
         let thmOwlCarousel = elm.owlCarousel(
@@ -102,9 +113,9 @@
       });
     }
 
-    let cityrideowlCarouselNav = $scope.find(".cityride-owl__carousel--custom-nav");
-    if (cityrideowlCarouselNav.length) {
-      cityrideowlCarouselNav.each(function () {
+    let rajowlCarouselNav = $scope.find(".raj-owl__carousel--custom-nav");
+    if (rajowlCarouselNav.length) {
+      rajowlCarouselNav.each(function () {
         let elm = $(this);
         let owlNavPrev = elm.data("owl-nav-prev");
         let owlNavNext = elm.data("owl-nav-next");
@@ -133,7 +144,7 @@
     if ($scope.find(".masonry-layout").length) {
       $scope.find(".masonry-layout").imagesLoaded(function () {
         $scope.find(".masonry-layout").isotope({
-          layoutMode: "masonry"
+          layoutMode: "masonry",
         });
       });
     }
@@ -156,47 +167,48 @@
           closeOnContentClick: true,
           closeBtnInside: false,
           gallery: {
-            enabled: true
-          }
+            enabled: true,
+          },
         });
       });
     }
 
-    if ($scope.find(".cityride-masonary").length) {
-      $scope.find(".cityride-masonary").imagesLoaded(function () {
-        $scope.find(".cityride-masonary").isotope({
-          layoutMode: "masonry"
+    if ($scope.find(".raj-masonary").length) {
+      $scope.find(".raj-masonary").imagesLoaded(function () {
+        $scope.find(".raj-masonary").isotope({
+          layoutMode: "masonry",
         });
       });
     }
 
     if ($scope.find(".post-filter").length) {
-      $scope.find(".post-filter li")
+      $scope
+        .find(".post-filter li")
         .children(".filter-text")
         .on("click", function () {
           var Self = $(this);
           var selector = Self.parent().attr("data-filter");
           $scope.find(".post-filter li").removeClass("active");
           Self.parent().addClass("active");
-          $scope.find(".cityride-filter").isotope({
+          $scope.find(".raj-filter").isotope({
             filter: selector,
             animationOptions: {
               duration: 500,
               easing: "linear",
-              queue: false
-            }
+              queue: false,
+            },
           });
           return false;
         });
     }
 
     if ($scope.find(".post-filter.has-dynamic-filters-counter").length) {
-      var activeFilterItem = $scope.find(".post-filter.has-dynamic-filters-counter").find(
-        "li"
-      );
+      var activeFilterItem = $scope
+        .find(".post-filter.has-dynamic-filters-counter")
+        .find("li");
       activeFilterItem.each(function () {
         var filterElement = $(this).data("filter");
-        var count = $scope.find(".cityride-filter").find(filterElement).length;
+        var count = $scope.find(".raj-filter").find(filterElement).length;
         $(this)
           .children(".filter-text")
           .append('<span class="count">(' + count + ")</span>");
@@ -205,7 +217,7 @@
 
     if ($scope.find(".masonary-layout").length) {
       $scope.find(".masonary-layout").isotope({
-        layoutMode: "masonry"
+        layoutMode: "masonry",
       });
     }
     if ($scope.find(".post-filter").length) {
@@ -222,8 +234,8 @@
             animationOptions: {
               duration: 500,
               easing: "linear",
-              queue: false
-            }
+              queue: false,
+            },
           });
           return false;
         });
@@ -265,20 +277,21 @@
         .each(function () {
           $(this).on("click", function () {
             let tabName = $(this).data("name");
-            $scope.find(".neighborhoods__img-box")
+            $scope
+              .find(".neighborhoods__img-box")
               .find(".neighborhoods__location-1")
               .removeClass("active");
-            $scope.find(".neighborhoods__img-box")
+            $scope
+              .find(".neighborhoods__img-box")
               .find(".neighborhoods__location-1." + tabName)
               .addClass("active");
           });
         });
     }
 
-
     //accordion
-    if ($(".cityride-accordion").length) {
-      var accordionGrp = $(".cityride-accordion");
+    if ($(".raj-accordion").length) {
+      var accordionGrp = $(".raj-accordion");
       accordionGrp.each(function () {
         var accordionName = $(this).data("grp-name");
         var Self = $(this);
@@ -291,10 +304,10 @@
             .find(".accordion-title")
             .on("click", function () {
               if ($(this).parent().hasClass("active") === false) {
-                $(".cityride-accordion." + accordionName)
+                $(".raj-accordion." + accordionName)
                   .find(".accordion")
                   .removeClass("active");
-                $(".cityride-accordion." + accordionName)
+                $(".raj-accordion." + accordionName)
                   .find(".accordion")
                   .find(".accordion-content")
                   .slideUp();
@@ -313,9 +326,10 @@
           var el = $(this);
           var percent = el.data("percent");
           $(el).css("width", percent).addClass("counted");
-        }, {
-        accY: -50
-      }
+        },
+        {
+          accY: -50,
+        }
       );
     }
 
@@ -342,70 +356,73 @@
           if (!$t.hasClass("counted")) {
             $t.addClass("counted");
             $({
-              countNum: $t.find(".count-text").text()
-            }).animate({
-              countNum: n
-            }, {
-              duration: r,
-              easing: "linear",
-              step: function () {
-                $t.find(".count-text").text(Math.floor(this.countNum));
+              countNum: $t.find(".count-text").text(),
+            }).animate(
+              {
+                countNum: n,
               },
-              complete: function () {
-                $t.find(".count-text").text(this.countNum);
+              {
+                duration: r,
+                easing: "linear",
+                step: function () {
+                  $t.find(".count-text").text(Math.floor(this.countNum));
+                },
+                complete: function () {
+                  $t.find(".count-text").text(this.countNum);
+                },
               }
-            });
+            );
           }
-        }, {
-        accY: 0
-      }
+        },
+        {
+          accY: 0,
+        }
       );
     }
 
-    
-  // Page Scroll Percentage
-  function scrollTopPercentage() {
-    const scrollPercentage = () => {
-      const scrollTopPos = document.documentElement.scrollTop;
-      const calcHeight =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-      const scrollValue = Math.round((scrollTopPos / calcHeight) * 100);
-      const scrollElementWrap = $("#scroll-top");
+    // Page Scroll Percentage
+    function scrollTopPercentage() {
+      const scrollPercentage = () => {
+        const scrollTopPos = document.documentElement.scrollTop;
+        const calcHeight =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const scrollValue = Math.round((scrollTopPos / calcHeight) * 100);
+        const scrollElementWrap = $("#scroll-top");
 
-      scrollElementWrap.css(
-        "background",
-        `conic-gradient( var(--cityride-black2) ${scrollValue}%, var(--cityride-white) ${scrollValue}%)`
-      );
+        scrollElementWrap.css(
+          "background",
+          `conic-gradient( var(--raj-black2) ${scrollValue}%, var(--raj-white) ${scrollValue}%)`
+        );
 
-      // ScrollProgress
-      if (scrollTopPos > 100) {
-        scrollElementWrap.addClass("active");
-      } else {
-        scrollElementWrap.removeClass("active");
+        // ScrollProgress
+        if (scrollTopPos > 100) {
+          scrollElementWrap.addClass("active");
+        } else {
+          scrollElementWrap.removeClass("active");
+        }
+
+        if (scrollValue < 96) {
+          $("#scroll-top-value").text(`${scrollValue}%`);
+        } else {
+          $("#scroll-top-value").html('<i class="fas fa-arrow-up"></i>');
+        }
+      };
+      window.onscroll = scrollPercentage;
+      window.onload = scrollPercentage;
+
+      // Back to Top
+      function scrollToTop() {
+        document.documentElement.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       }
 
-      if (scrollValue < 96) {
-        $("#scroll-top-value").text(`${scrollValue}%`);
-      } else {
-        $("#scroll-top-value").html('<i class="fas fa-arrow-up"></i>');
-      }
-    };
-    window.onscroll = scrollPercentage;
-    window.onload = scrollPercentage;
-
-    // Back to Top
-    function scrollToTop() {
-      document.documentElement.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+      $("#scroll-top").on("click", scrollToTop);
     }
 
-    $("#scroll-top").on("click", scrollToTop);
-  }
-
-  scrollTopPercentage();
+    scrollTopPercentage();
 
     // Circle Text
     let circleTypeElm = $scope.find(".curved-circle__item");
@@ -431,7 +448,7 @@
       });
     }
 
-    let thmOwlCarousels = $scope.find(".cityride-owl__carousel");
+    let thmOwlCarousels = $scope.find(".raj-owl__carousel");
     if (thmOwlCarousels.length) {
       thmOwlCarousels.each(function () {
         let elm = $(this);
@@ -440,7 +457,7 @@
           "object" === typeof options ? options : JSON.parse(options)
         );
       });
-      window.dispatchEvent(new Event('resize'));
+      window.dispatchEvent(new Event("resize"));
     }
 
     let thmOwlNavCarousels = $scope.find(".thm-owl__carousel--custom-nav");
@@ -461,8 +478,6 @@
       });
     }
 
-
-
     if ($scope.find(".post-filter").length) {
       var postFilterList = $scope.find(".post-filter li");
       // for first init
@@ -471,8 +486,8 @@
         animationOptions: {
           duration: 500,
           easing: "linear",
-          queue: false
-        }
+          queue: false,
+        },
       });
       // on click filter links
       postFilterList.on("click", function () {
@@ -486,8 +501,8 @@
           animationOptions: {
             duration: 500,
             easing: "linear",
-            queue: false
-          }
+            queue: false,
+          },
         });
         return false;
       });
@@ -497,8 +512,8 @@
     }
 
     // Date Picker
-    if ($scope.find(".cityride-datepicker").length) {
-      $scope.find(".cityride-datepicker").each(function () {
+    if ($scope.find(".raj-datepicker").length) {
+      $scope.find(".raj-datepicker").each(function () {
         $(this).datepicker();
       });
     }
@@ -511,11 +526,11 @@
       $scope.find("#datepicker2").datepicker();
     }
 
-    cityride_stretch();
+    raj_stretch();
 
-    function cityride_stretch() {
+    function raj_stretch() {
       var i = $(window).width();
-      $scope.find(".row .cityride-stretch-element-inside-column").each(function () {
+      $scope.find(".row .raj-stretch-element-inside-column").each(function () {
         var $this = $(this),
           row = $this.closest(".row"),
           cols = $this.closest('[class^="col-"]'),
@@ -531,7 +546,7 @@
           f = i - s.right,
           styles = {
             "margin-left": 0,
-            "margin-right": 0
+            "margin-right": 0,
           };
         if (Math.round(c) === Math.round(p)) {
           var h = parseFloat($this.css("margin-left") || 0);
@@ -545,13 +560,13 @@
       });
     }
 
-    const choiceArray = document.querySelectorAll(".choice")
+    const choiceArray = document.querySelectorAll(".choice");
     choiceArray.forEach((card) => {
       card.addEventListener("click", () => {
         choiceArray.forEach((element) => {
-          element.classList.remove("expand")
-        })
-        card.classList.add('expand')
+          element.classList.remove("expand");
+        });
+        card.classList.add("expand");
       });
     });
   };
@@ -571,10 +586,12 @@
             .find(".accrodion-title")
             .on("click", function () {
               if ($(this).parent().hasClass("active") === false) {
-                $scope.find(".accrodion-grp." + accrodionName)
+                $scope
+                  .find(".accrodion-grp." + accrodionName)
                   .find(".accrodion")
                   .removeClass("active");
-                $scope.find(".accrodion-grp." + accrodionName)
+                $scope
+                  .find(".accrodion-grp." + accrodionName)
                   .find(".accrodion")
                   .find(".accrodion-content")
                   .slideUp();
@@ -587,8 +604,6 @@
     }
   };
 
-
-
   //elementor front start
   $(window).on("elementor/frontend/init", function () {
     elementorFrontend.hooks.addAction(
@@ -597,73 +612,8 @@
     );
 
     elementorFrontend.hooks.addAction(
-      "frontend/element_ready/cityride-faq.default",
+      "frontend/element_ready/raj-faq.default",
       WidgetFaqHandler
     );
-
   });
-
-  // login
-  $("#cityride-login").submit(function (event) {
-    event.preventDefault();
-
-    var login = "action=signup_paragon&param=login&" + $(this).serialize();
-    var loginResult = $(".login-result");
-    $.ajax({
-      type: "POST",
-      url: cityride_login_object.ajaxurl,
-      data: login,
-      beforeSend: function () {
-        // setting a timeout
-        loginResult.addClass("loading");
-      },
-      success: function (data) {
-        loginResult.removeClass("loading");
-        if (data.status == 2) {
-          loginResult.removeClass("alert alert-warning");
-          loginResult.html(data.message).addClass("alert alert-success");
-          window.location.href = cityride_login_object.login_redirect_url;
-        } else if (data.status == 1) {
-          loginResult.html(data.message).addClass("alert alert-warning");
-        } else {
-          loginResult
-            .html(cityride_login_object.message)
-            .addClass("alert alert-warning");
-        }
-      }
-    });
-  }); //end login
-
-  // register
-  $("#cityride-registration").submit(function (event) {
-    event.preventDefault();
-
-    var signupForm =
-      "action=signup_paragon&param=register&" + $(this).serialize();
-    var registerationResult = $(".registration-result");
-    $.ajax({
-      type: "POST",
-      url: cityride_login_object.ajaxurl,
-      data: signupForm,
-      beforeSend: function () {
-        // setting a timeout
-        registerationResult.addClass("loading");
-      },
-      success: function (data) {
-        registerationResult.removeClass("loading");
-        if (data.status == 2) {
-          registerationResult.removeClass("alert alert-warning");
-          registerationResult
-            .html(data.message)
-            .addClass("alert alert-success");
-          window.location.href = cityride_login_object.registration_redirect_url;
-        } else {
-          registerationResult
-            .html(data.message)
-            .addClass("alert alert-warning");
-        }
-      }
-    });
-  }); //end register
-
 })(jQuery);

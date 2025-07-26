@@ -1,1 +1,7 @@
 /* addon front end css */
+
+.e-con.e-flex>.e-con-inner {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 50px !important;
+}
