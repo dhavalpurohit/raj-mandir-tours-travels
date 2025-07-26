@@ -5,3 +5,14 @@
     justify-content: center !important;
     gap: 50px !important;
 }
+
+
+.video_slide {
+    display: none !important;
+}
+
+@media (min-width: 768px) {
+    .video_slide {
+        display: block !important;
+    }
+}
