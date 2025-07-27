@@ -15411,8 +15411,10 @@ li:hover .sidebar__comments__icon {
 
 .taxi-card__image img {
   max-width: 100%;
-  height: auto;
-  max-height: 190px;
+  height: 147px;
+  max-height: 147px;
+  margin: auto;
+  display: block;
 }
 
 .taxi-card__price {
@@ -15626,18 +15628,18 @@ li:hover .sidebar__comments__icon {
 }
 
 .taxi-rates-one--home-3 .taxi-rates-one__main-tab-box {
-  margin-bottom: 120px;
+  margin-bottom: 0;
 }
 
 @media (max-width: 767px) {
   .taxi-rates-one--home-3 .taxi-rates-one__main-tab-box {
-    margin-bottom: 100px;
+    margin-bottom: 0;
   }
 }
 
 @media (max-width: 575px) {
   .taxi-rates-one--home-3 .taxi-rates-one__main-tab-box {
-    margin-bottom: 80px;
+    margin-bottom: 0;
   }
 }
 
@@ -17972,6 +17974,7 @@ li:hover .sidebar__comments__icon {
   background-color: var(--raj-white, #FFFFFF);
   position: relative;
   z-index: 1;
+  /* padding-bottom: 230px; */
 }
 
 @media (min-width: 1620px) {
