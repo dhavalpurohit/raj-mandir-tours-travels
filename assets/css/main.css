@@ -1,6 +1,6 @@
 /* addon front end css */
 
-.e-con.e-flex > .e-con-inner {
+.e-con.e-flex>.e-con-inner {
   display: flex !important;
   justify-content: center !important;
   gap: 50px !important;
@@ -52,23 +52,46 @@
   padding-top: 10px;
 }
 
+.video-fullscreen {
+  position: relative;
+  width: 100vw !important;
+  height: 100vh !important;
+  overflow: hidden;
+}
+
+.video-fullscreen video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+
 @media (max-width: 768px) {
   .logo-retina img {
     width: 80px;
     height: 80px;
   }
+
   .main-header__inner {
     padding: 6px 0;
   }
+
   .main-footer__inner {
     padding-top: 20px;
   }
+
   .elementor-835 .elementor-element.elementor-element-a71829f.e-con {
     padding: 0 16px;
   }
+
   .footer-widget--about .logo-retina img {
     width: auto;
   }
+
   /* .testimonials-one {
     padding-bottom: 50px !important;
   } */
